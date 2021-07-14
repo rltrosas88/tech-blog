@@ -1,0 +1,12 @@
+{{!-- take a single "post" object and pass it to the homepage.handlebars template 
+    Each property on the object becomes available in the template using the Handlebars.js syntax--}}
+<ol class="post-list">
+    {{!-- update the HTML to use the built-in helpers that will allow code to perform minimal logic like looping over an array --}}
+    {{!-- eclare a variable name in the each expression and use that name for the subsequent placeholders --}}
+    {{#each posts as |post|}}
+    <li>
+        {{!-- import the partial post-info post --}}
+        {{> post-info post }}
+    </li>
+    {{/each}}
+</ol>

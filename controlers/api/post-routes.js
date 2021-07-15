@@ -9,10 +9,9 @@ router.get('/', (req, res) => {
     console.log('======================');
     Post.findAll({
         //Query configuration
-        //update the `.findAll()` method's attributes [sequelize.literal] to include the total vote count for a post
         attributes: [
             'id',
-            'post_url',
+            'post_body',
             'title',
             'created_at',
         ],
@@ -48,7 +47,7 @@ router.get('/:id', (req, res) => {
         },
         attributes: [
             'id',
-            'post_url',
+            'post_body',
             'title',
             'created_at',
         ],
@@ -82,10 +81,9 @@ router.get('/:id', (req, res) => {
 
 //assign the values of the title, post_url, and user_id to the properties in the req.body object
 router.post('/', withAuth, (req, res) => {
-    // expects {title: 'Taskmaster goes public!', post_url: 'https://taskmaster.com/press', user_id: 1}
     Post.create({
         title: req.body.title,
-        post_url: req.body.post_url,
+        post_body: req.body.post_body,
         user_id: req.session.user_id
     })
         .then(dbPostData => res.json(dbPostData))

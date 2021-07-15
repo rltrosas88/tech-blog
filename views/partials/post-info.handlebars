@@ -4,8 +4,8 @@
     when we pass the post object into the partial, we don't pass the object as is but rather pass in all of the properites of that object --}}
 <article class="post">
     <div class="title">
-        <a href="{{post_url}}" target="_blank">{{title}}</a>
-        <span>({{format_url post_url}})</span>
+        <a href="{{post_body}}" target="_blank">{{title}}</a>
+        <span>({{post_body}})</span>
     </div>
     <div class="meta">
         <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
